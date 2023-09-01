@@ -8,7 +8,6 @@ function getComputerChoice() {
 
 
 
-
 function checkWinner(playerSelection, computerSelection) {
   if(playerSelection == computerSelection) {
     return "Tie";
@@ -28,7 +27,19 @@ function checkWinner(playerSelection, computerSelection) {
 }
 
 function playRound(playerSelection, computerSelection) {
-  
+  const result =  checkWinner(playerSelection, computerSelection)
+  if(result == "Tie"){
+    return "It's a Tie!"
+  }
+  else if(result == "Player"){
+    return `You win! ${playerSelection} beats ${computerSelection}`
+  }
+  else {
+    return `You Lose! ${playerSelection} beats ${computerSelection}`
+  }
 }
 
-getComputerChoice();
+
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
